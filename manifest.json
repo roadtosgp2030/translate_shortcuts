@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Google Translate Shortcuts",
+  "version": "1.0.0",
+  "description": "Phím tắt bàn phím cho toàn bộ chức năng của translate.google.com, và dịch nhanh văn bản đang chọn từ mọi trang.",
+  "permissions": ["contextMenus", "scripting", "activeTab", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://translate.google.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "translate-selection": {
+      "suggested_key": { "default": "Alt+Shift+T", "mac": "Alt+Shift+T" },
+      "description": "Dịch văn bản đang chọn (hoặc mở Google Dịch)"
+    }
+  }
+}

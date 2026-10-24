@@ -1,0 +1,121 @@
+.gts-toast,
+.gts-overlay {
+  --gts-bg: #ffffff;
+  --gts-fg: #1f1f1f;
+  --gts-muted: #5f6368;
+  --gts-border: #dadce0;
+  --gts-kbd-bg: #f1f3f4;
+  --gts-accent: #0b57d0;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .gts-toast,
+  .gts-overlay {
+    --gts-bg: #2d2e30;
+    --gts-fg: #e3e3e3;
+    --gts-muted: #9aa0a6;
+    --gts-border: #3c4043;
+    --gts-kbd-bg: #3c4043;
+    --gts-accent: #a8c7fa;
+  }
+}
+
+.gts-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  z-index: 2147483647;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--gts-fg);
+  color: var(--gts-bg);
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.gts-toast.gts-show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.gts-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.gts-overlay.gts-show {
+  display: flex;
+}
+
+.gts-panel {
+  width: min(960px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  padding: 24px 28px;
+  border-radius: 16px;
+  background: var(--gts-bg);
+  color: var(--gts-fg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.gts-panel h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.gts-columns {
+  columns: 2 380px;
+  column-gap: 32px;
+}
+
+.gts-panel section {
+  break-inside: avoid;
+  margin-bottom: 18px;
+}
+
+.gts-panel h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gts-accent);
+}
+
+.gts-row {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 4px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.gts-row kbd {
+  flex: 0 0 150px;
+  padding: 2px 8px;
+  border: 1px solid var(--gts-border);
+  border-radius: 6px;
+  background: var(--gts-kbd-bg);
+  font-family: 'Roboto Mono', Consolas, monospace;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.gts-footer {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--gts-muted);
+}
